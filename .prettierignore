@@ -1,0 +1,12 @@
+# prettierignore
+dist
+.cspell
+node_modules
+.editorconfig
+.eslintcache
+.gitignore
+.oxlintrc.json
+cspell.json
+package.json
+pnpm-lock.yaml
+pnpm-workspace.yaml

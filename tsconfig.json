@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "esnext",
+		"types": [],
+		"lib": ["ESNext"],
+		"sourceMap": false,
+		"declaration": true,
+		"declarationMap": false,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": false,
+		"strict": true,
+		"verbatimModuleSyntax": false,
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"noUncheckedSideEffectImports": true,
+		"moduleDetection": "force",
+		"skipLibCheck": true,
+		"ignoreDeprecations": "6.0",
+		"esModuleInterop": true
+	},
+	"exclude": ["node_modules", "dist"]
+}
