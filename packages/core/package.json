@@ -1,0 +1,33 @@
+{
+  "name": "@mitsuki-monitor-sdk/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "buildOptions": {
+    "name": "MonitorSdkCore",
+    "formats": [
+      "esm",
+      "cjs",
+      "iife"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.32.1",
+  "dependencies": {
+    "web-vitals": "^5.2.0"
+  }
+}
