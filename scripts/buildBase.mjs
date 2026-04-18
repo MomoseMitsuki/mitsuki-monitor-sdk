@@ -4,12 +4,13 @@ import fs from "node:fs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
+import babel from "@rollup/plugin-babel";
 import del from "rollup-plugin-delete";
 
 const __filename = URL.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const packages = ["core"];
+const packages = ["core", "monitor-vue", "monitor-react"];
 
 function getPackageRoots() {
 	return packages.map(pkg => path.resolve(__dirname, "../packages", pkg));
@@ -30,8 +31,19 @@ async function getRollupConfig(root) {
 	const rollupOptions = {
 		input: entry,
 		sourcemap: false,
-		plugins: [del({ targets: dist }), nodeResolve(), typescript({ tsconfig }), commonjs()],
-		dir: dist
+		plugins: [
+			del({ targets: dist }),
+			nodeResolve({ preserveSymlinks: true }),
+			typescript({ tsconfig }),
+			babel({
+				babelHelpers: "bundled",
+				configFile: path.resolve(__dirname, "../babel.config.mjs"),
+				exclude: "node_modules/**"
+			}),
+			commonjs()
+		],
+		dir: dist,
+		external: config.buildOptions.external || []
 	};
 	const output = [];
 	for (const format of formats) {
@@ -47,10 +59,12 @@ async function getRollupConfig(root) {
 			format,
 			dir: dist,
 			chunkFileNames: `[name]-[hash].${ext}`,
-			entryFileNames: `[name].${ext}`
+			entryFileNames: `[name].${ext}`,
+			exports: "named"
 		};
 		if (format === "iife") {
 			outputItem.name = name;
+			outputItem.globals = config.buildOptions.globals || {};
 		}
 		output.push(outputItem);
 	}
