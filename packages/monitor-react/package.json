@@ -1,0 +1,39 @@
+{
+  "name": "@mitsuki-monitor-sdk/react",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "buildOptions": {
+    "name": "MonitorReact",
+    "formats": [
+      "esm",
+      "cjs",
+	  "iife"
+    ],
+	"external": ["react", "react-router-dom", "@mitsuki-monitor-sdk/core"],
+	"globals": {
+	  "react": "React",
+	  "react-router-dom": "ReactRouterDOM",
+	  "@mitsuki-monitor-sdk/core": "MonitorSdkCore"
+	}
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+	"@types/react": "^19.2.14"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-router-dom": "^7.0.0",
+	"@mitsuki-monitor-sdk/core": "workspace:^"
+  }
+}
