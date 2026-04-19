@@ -6,7 +6,10 @@ interface ErrorBoundaryProps {
 	errShow?: ReactNode;
 }
 
-export default class ErrorBoundary extends React.Component {
+interface ErrorBoundaryState {
+	hasError: boolean;
+}
+export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
 	constructor(props: ErrorBoundaryProps) {
 		super(props);
 		this.state = { hasError: false };
@@ -24,5 +27,12 @@ export default class ErrorBoundary extends React.Component {
 			paths
 		};
 		lazyReportCache("error", data);
+	}
+
+	render() {
+		if (this.state.hasError) {
+			return this.props.errShow || null;
+		}
+		return this.props.children;
 	}
 }
