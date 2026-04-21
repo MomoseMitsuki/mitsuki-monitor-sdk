@@ -9,12 +9,13 @@ export class BehaviorService {
 	constructor(@InjectModel(Behavior.name) private readonly behaviorModel: Model<Behavior>) {}
 
 	reportData(dto: BehaviorDto) {
-		const { id, appId, userId, data, currentTime, currentPage, ua } = dto;
+		const { id, appId, userId, username, data, currentTime, currentPage, ua } = dto;
 		data.forEach(async item => {
 			const behaviorLog = new this.behaviorModel({
 				id,
 				appId,
 				userId,
+				username,
 				subType: item.subType,
 				referrer: hasKey(item, "referrer"),
 				effectiveType: hasKey(item, "effectiveType"),

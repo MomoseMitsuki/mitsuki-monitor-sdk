@@ -15,6 +15,9 @@ export class Behavior {
 	userId!: string;
 
 	@Prop({ required: true, type: String })
+	username!: string;
+
+	@Prop({ required: true, type: String })
 	subType!: string;
 
 	@Prop({ required: false, type: String })

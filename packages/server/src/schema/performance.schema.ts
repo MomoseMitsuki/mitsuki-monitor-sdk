@@ -14,6 +14,9 @@ export class Performance {
 	@Prop({ required: true, type: String })
 	userId!: string;
 
+	@Prop({ required: true, type: String })
+	username!: string;
+
 	@Prop({ default: "", type: String })
 	name!: string;
 

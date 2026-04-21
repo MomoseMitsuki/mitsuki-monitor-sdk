@@ -14,6 +14,9 @@ export class Error {
 	@Prop({ required: true, type: String })
 	userId!: string;
 
+	@Prop({ required: true, type: String })
+	username!: string;
+
 	@Prop({ required: false, type: String })
 	errorType?: string;
 

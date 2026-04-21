@@ -9,13 +9,14 @@ export class ErrorService {
 	constructor(@InjectModel(Error.name) private errModal: Model<Error>) {}
 
 	reportData(dto: ReportErrorDto) {
-		const { id, appId, userId, data, currentTime, currentPage, ua } = dto;
+		const { id, appId, userId, username, data, currentTime, currentPage, ua } = dto;
 		data.forEach(async item => {
 			if (this.isResourceError(item)) {
 				const errorLog = new this.errModal({
 					id,
 					appId,
 					userId,
+					username,
 					filename: item.filename,
 					errorType: item.errorType,
 					errMsg: item.message,

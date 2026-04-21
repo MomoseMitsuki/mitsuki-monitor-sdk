@@ -9,12 +9,13 @@ export class ApiService {
 	constructor(@InjectModel(ApiLog.name) private readonly apiModel: Model<ApiLog>) {}
 
 	reportData(dto: ApiDto) {
-		const { id, appId, userId, data, currentTime, currentPage, ua } = dto;
+		const { id, appId, userId, username, data, currentTime, currentPage, ua } = dto;
 		data.forEach(async item => {
 			const apiLog = new this.apiModel({
 				id,
 				appId,
 				userId,
+				username,
 				subType: item.subType,
 				startTime: item.startTime,
 				duration: item.duration,

@@ -15,6 +15,10 @@ export class BaseDto {
 
 	@IsNotEmpty()
 	@IsString()
+	username!: string;
+
+	@IsNotEmpty()
+	@IsString()
 	ua!: string;
 
 	@IsNotEmpty()

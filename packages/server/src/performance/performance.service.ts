@@ -9,12 +9,13 @@ export class PerformanceService {
 	constructor(@InjectModel(Performance.name) private readonly performanceModel: Model<Performance>) {}
 
 	reportData(dto: ReportPerformanceDto) {
-		const { id, appId, userId, data, currentTime, currentPage, ua } = dto;
+		const { id, appId, userId, username, data, currentTime, currentPage, ua } = dto;
 		data.forEach(async item => {
 			const performanceLog = new this.performanceModel({
 				id,
 				appId,
 				userId,
+				username,
 				name: item.name,
 				value: item.value,
 				rating: item.rating,
