@@ -31,6 +31,7 @@ export class ErrorService {
 					id,
 					appId,
 					userId,
+					username,
 					errorType: item.errorType,
 					errMsg: item.message,
 					filename: item.filename,
