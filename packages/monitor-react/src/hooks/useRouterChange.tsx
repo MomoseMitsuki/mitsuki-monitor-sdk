@@ -14,7 +14,7 @@ export const useRouterChangeReport = () => {
 
 	useEffect(() => {
 		const handleRouteChange = () => {
-			if (fromPath) {
+			if (fromPath && fromPath !== location.pathname) {
 				const stayTime = Date.now() - pageViewStartTime;
 				pageViewStartTime = Date.now();
 				lazyReportCache("behavior", {
@@ -30,7 +30,7 @@ export const useRouterChangeReport = () => {
 			setFromPath(location.pathname);
 		};
 		handleRouteChange();
-	}, [location, fromPath]);
+	}, [location]);
 };
 
 export default useRouterChangeReport;
