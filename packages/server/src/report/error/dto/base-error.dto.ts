@@ -15,7 +15,6 @@ export class BaseErrorDto {
 	@IsOptional()
 	colno?: number;
 
-	@IsNotEmpty()
 	@IsString()
 	message!: string;
 }

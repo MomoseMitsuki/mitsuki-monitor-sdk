@@ -4,7 +4,7 @@ import { ReportErrorDto } from "./dto/index.dto";
 import { validate } from "class-validator";
 import { plainToInstance } from "class-transformer";
 
-@Controller("report")
+@Controller("/report")
 export class ErrorController {
 	constructor(private readonly errorService: ErrorService) {}
 
