@@ -33,13 +33,14 @@ export default defineConfig(
 		rules: {
 			"@typescript-eslint/no-explicit-any": "off",
 			"@typescript-eslint/no-unsafe-function-type": "off",
+			"no-unused-expressions": "off",
 			"no-var": "error",
 			"no-empty": "off"
 		}
 	},
 	{
 		ignores,
-		files: ["packages/client/**/*.{ts,js,tsx,jsx}", "examples/react/*.{ts,js,tsx,jsx}"],
+		files: ["examples/react/*.{ts,js,tsx,jsx}"],
 		extends: [reactHooks.configs.flat.recommended, reactRefresh.configs.vite]
 	}
 );
