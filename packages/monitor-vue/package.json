@@ -1,7 +1,11 @@
 {
   "name": "@mitsuki-monitor-sdk/vue",
   "version": "1.0.0",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MomoseMitsuki/mitsuki-monitor-sdk.git"
+  },
+  "description": "The wrapper layer of mitsuki-monitor-sdk on vue.",
   "type": "module",
   "exports": {
     "types": "./dist/index.d.ts",
@@ -23,13 +27,20 @@
 	  "@mitsuki-monitor-sdk/core": "MonitorSdkCore"
 	}
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["monitor", "vue", "vue-router"],
+  "author": "momosemitsuki",
+  "license": "MIT",
   "packageManager": "pnpm@10.32.1",
   "peerDependencies": {
     "vue": "^3.0.0",
     "vue-router": "^5.0.0",
-	"@mitsuki-monitor-sdk/core": "workspace:^"
+	"@mitsuki-monitor-sdk/core": "workspace:*"
   }
 }

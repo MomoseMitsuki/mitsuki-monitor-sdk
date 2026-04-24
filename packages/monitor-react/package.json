@@ -1,7 +1,11 @@
 {
   "name": "@mitsuki-monitor-sdk/react",
   "version": "1.0.0",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MomoseMitsuki/mitsuki-monitor-sdk.git"
+  },
+  "description": "The wrapper layer of mitsuki-monitor-sdk on react.",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/index.mjs",
@@ -24,9 +28,16 @@
 	  "@mitsuki-monitor-sdk/core": "MonitorSdkCore"
 	}
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["monitor", "react", "react-router"],
+  "author": "momosemitsuki",
+  "license": "MIT",
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {
 	"@types/react": "^19.2.14"
